@@ -20,6 +20,10 @@ const ShopContextProvider = (props) => {
 
 
     const addToCart = async (itemId, size) => {
+        if(!token){
+            toast.error('Login/Signup first to add items to the cart')
+            return;
+        }
         if (!size) {
             toast.error('Select Product Size')
             return;
